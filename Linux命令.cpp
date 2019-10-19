@@ -1,5 +1,5 @@
 重点注意X86和X64系统间的区别[x64的不能在x86中运行]
-升级软件
+
 
 Ubuntu 18.04 下使用git
 下载Git项目上的代码项目 git clone +项目地址
@@ -8,7 +8,10 @@ git clone https://github.com/具体项目地址
 在终端下直接显示文本文档内容
 #  cat 文本.cpp
 
+# sudo su -                               切换到root权限（与su有区别）
 
+# shutdown -h now  或者 halt         关机
+# shutdown -r now            重启
 快捷启动命令行方式
 Ctrl+Alt+t
 移出软件remove
@@ -199,10 +202,7 @@ yum工具:
 locale
 其他:
 
-# sudo su -                               切换到root权限（与su有区别）
 
-# shutdown -h now  或者 halt         关机
-# shutdown -r now            重启
 # top                                  罗列使用CPU资源最多的linux任务 （输入q退出）
 # pstree                             以树状图显示程序
 # man ping                        查看参考手册（例如ping 命令）
