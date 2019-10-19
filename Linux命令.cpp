@@ -1,7 +1,14 @@
 重点注意X86和X64系统间的区别[x64的不能在x86中运行]
 升级软件
+
 Ubuntu 18.04 下使用git
 下载Git项目上的代码项目 git clone +项目地址
+git clone https://github.com/具体项目地址
+
+在终端下直接显示文本文档内容
+#  cat 文本.cpp
+
+
 快捷启动命令行方式
 Ctrl+Alt+t
 移出软件remove
@@ -210,3 +217,6 @@ sudo apt-get install byzanz
 byzanz-record -d 50 -x 0 -y 0 -w 800 -h 505 ~/x.gif 
 //查看窗口尺寸
 xwininfo
+
+
+
