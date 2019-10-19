@@ -2,8 +2,10 @@
 
 
 Ubuntu 18.04 下使用git
+在终端下使用
 下载Git项目上的代码项目 git clone +项目地址
 git clone https://github.com/具体项目地址
+
 
 在终端下直接显示文本文档内容
 #  cat 文本.cpp
@@ -217,6 +219,5 @@ sudo apt-get install byzanz
 byzanz-record -d 50 -x 0 -y 0 -w 800 -h 505 ~/x.gif 
 //查看窗口尺寸
 xwininfo
-
 
 
