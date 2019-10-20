@@ -3,6 +3,8 @@
 
 Ubuntu 18.04 下使用git
 在终端下使用
+处于编辑时vi
+快捷键arl+^+X 离开并保存
 下载Git项目上的代码项目 git clone +项目地址
 git clone https://github.com/具体项目地址
 
@@ -79,7 +81,7 @@ cp 文件名 目的位置
 #cp jdk-8u25-linux-x64.tar.gz /usr/local/java
 复制文件夹
 cp 文件夹名 目的位置
-#cp jdk /usr/local/java
+#cp -r jdk   /home/usr/local/java
 解压文件1
 #sudo tar xvf jdk-8u25-linux-x64.tar.gz
 解压文件2-ZIP
