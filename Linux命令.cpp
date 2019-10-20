@@ -4,7 +4,14 @@
 Ubuntu 18.04 下使用git
 在终端下使用
 处于编辑时vi
-快捷键arl+^+X 离开并保存
+新建文本
+vi 文件名.txt
+
+#进入编辑模式
+shift+s或者a  退出编辑模式 esc
+#保存并退出
+shift+:wq
+
 下载Git项目上的代码项目 git clone +项目地址
 git clone https://github.com/具体项目地址
 
@@ -14,7 +21,8 @@ git clone https://github.com/具体项目地址
 查看文件内容:
 
 # cat file1                          从第一个字节开始正向查看文件的内容
-
+#对文件名重命名
+mv 123.txt 546.txt
 # sudo su -                               切换到root权限（与su有区别）
 
 # shutdown -h now  或者 halt         关机
