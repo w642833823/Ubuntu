@@ -77,6 +77,9 @@ sudo apt-get autoremove --purge libqt4-[a-z]*
 复制文件
 cp 文件名 目的位置
 #cp jdk-8u25-linux-x64.tar.gz /usr/local/java
+复制文件夹
+cp 文件夹名 目的位置
+#cp jdk /usr/local/java
 解压文件1
 #sudo tar xvf jdk-8u25-linux-x64.tar.gz
 解压文件2-ZIP
@@ -175,4 +178,3 @@ sudo apt-get install byzanz
 byzanz-record -d 50 -x 0 -y 0 -w 800 -h 505 ~/x.gif 
 //查看窗口尺寸
 xwininfo
-
