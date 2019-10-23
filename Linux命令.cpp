@@ -20,7 +20,9 @@ git clone https://github.com/具体项目地址
 #  cat 文本.cpp
 查看文件内容:
 
-# cat file1                          从第一个字节开始正向查看文件的内容
+#查看boot分区信息和其他分区大小
+df -h /boot
+
 #对文件名重命名
 mv 123.txt 546.txt
 # sudo su -                               切换到root权限（与su有区别）
