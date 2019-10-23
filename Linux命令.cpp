@@ -20,8 +20,9 @@ git clone https://github.com/具体项目地址
 #  cat 文本.cpp
 查看文件内容:
 
-#查看boot分区信息和其他分区大小
+#查看boot分区信息和其他分区内存大小
 df -h /boot
+
 #查看目前系统中安装的内核镜像
 dpkg --get-selections |grep linux-image
 #卸载内核镜像
