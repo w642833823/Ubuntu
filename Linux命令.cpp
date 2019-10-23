@@ -22,6 +22,10 @@ git clone https://github.com/具体项目地址
 
 #查看boot分区信息和其他分区大小
 df -h /boot
+#查看目前系统中安装的内核镜像
+dpkg --get-selections |grep linux-image
+#卸载内核镜像
+ sudo apt-get remove linux-image-4.8.0-56-generic
 
 #对文件名重命名
 mv 123.txt 546.txt
