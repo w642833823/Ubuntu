@@ -30,6 +30,9 @@ dpkg --get-selections |grep linux-image
 
 #对文件名重命名
 mv 123.txt 546.txt
+#移动文件到指定目录
+mv 123.txt /home/具体位置
+
 # sudo su -                               切换到root权限（与su有区别）
 
 # shutdown -h now  或者 halt         关机
@@ -175,7 +178,7 @@ sudo su gedit /etc/profile
 
 # find / -name file1                                                 从 '/' 开始进入根文件系统查找文件和目录
 
-压缩和解压:
+
 
 安装gcc
 sudo apt-get install gcc 8.1
