@@ -1,8 +1,20 @@
+
+
+
+
 #检测到系统程序出现问题的提示框，解决方法
 打开并修改一下
 sudo nano /etc/default/apport
 enabled =0  将这个enabled设为0
+
 #解决应双系统下扩展分区后启动位置被改变而无法启动之解决方法
+
+#error: unknown filesystem
+#grub rescue >_
+
+#因为我的电脑是Ubuntu的，开机用的是grub引导，而grub就放在Ubuntu里的/boot/grub下。由于我多分出了一个区，导致grub找不到原先的Ubuntu所在分区，自然就找不到/boot/grub了，因此解决这个问题很简单，只要把grub和/boot/grub对应上就可以了。
+
+
 第一步输入ls
 grub rescue > ls
 第二步输入 set
