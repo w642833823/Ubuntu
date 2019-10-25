@@ -1,5 +1,9 @@
 重点注意X86和X64系统间的区别[x64的不能在x86中运行]
 
+//更新源
+1. sudo apt-get update
+//更新已安装的软件包
+2. sudo apt-get upgrade
 
 Ubuntu 18.04 下使用git
 在终端下使用
@@ -22,7 +26,23 @@ git clone https://github.com/具体项目地址
 
 #查看boot分区信息和其他分区内存大小
 df -h /boot
+打开终端，使用下面的命令安装JRE :
 
+sudo apt-get install default-jre
+环境变量
+sudo vi /etc/profile
+使环境变量立马生效
+source /etc/profile
+查看环境变量是否已经生效
+
+查看Linux是32位还是64
+getconf LONG_BIT
+//ubuntu 应用程序默认安装位置
+/usr/share/applicatio
+快捷键开启终端
+ctrl+alt+t
+清屏命令
+快捷键 ctrl  +l
 #查看目前系统中安装的内核镜像
 dpkg --get-selections |grep linux-image
 #卸载内核镜像
@@ -54,12 +74,7 @@ Ctrl+Alt+t
 
 #关机
 halt
-//更新源
-1. sudo apt-get update
-//更新已安装的软件包
-2. sudo apt-get upgrade
-//系统sources.list的位置
-cd /etc/apt
+
 查看版本代码
 sudo lsb_release -a
 Linux下zip文件密码破解Fcrackzip
@@ -125,23 +140,7 @@ sudo apt-get install wine
 sudo apt-get install build-essential libgl1-mesa-dev
 定位libGL库的位置
 locate libGL.so
-打开终端，使用下面的命令安装JRE :
 
-sudo apt-get install default-jre
-环境变量
-sudo vi /etc/profile
-使环境变量立马生效
-source /etc/profile
-查看环境变量是否已经生效
-
-查看Linux是32位还是64
-getconf LONG_BIT
-//ubuntu 应用程序默认安装位置
-/usr/share/applicatio
-快捷键开启终端
-ctrl+alt+t
-清屏命令
-快捷键 ctrl  +l
 
 安装Root
 sudo apt install root-system-bin
