@@ -84,8 +84,7 @@ sudo apt-get install libgl1 -mesa-dev
 1，非常有用的清理命令：
 sudo apt-get autoclean --清理旧版本的软件缓存 OK(已经卸载掉的软件包)
 sudo apt-get clean--清理所有软件缓存 OK(电脑上存储的安装包)
-sudo apt-get autoremove--删除系统不再使用的孤立软件 OK
-(已经卸载了，但是一些只有它依赖而别的软件包都不需要的软件包)
+sudo apt autoremove   卸载不需要的软件
 
 卸载QT5程序
 #sudo apt-get remove qt5-default qtcreator 程序名
@@ -130,7 +129,11 @@ locate libGL.so
 
 sudo apt-get install default-jre
 环境变量
-sudo gedit /etc/environment
+sudo vi /etc/profile
+使环境变量立马生效
+source /etc/profile
+查看环境变量是否已经生效
+
 查看Linux是32位还是64
 getconf LONG_BIT
 //ubuntu 应用程序默认安装位置
