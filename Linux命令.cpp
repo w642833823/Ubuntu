@@ -74,6 +74,7 @@ sudo gedit /etc/apt/sources.list
 apt install qtcreator
 删除音乐播放器remove
 sudo apt remove --auto-remove deadbeef
+sudo apt remove rpm
 卸载全景照片拼接器remove
 sudo apt-get remove--auto-hugin hugin-tools
 第一次编译，出错
