@@ -29,7 +29,7 @@ df -h /boot
 打开终端，使用下面的命令安装JRE :
 
 sudo apt-get install default-jre
-环境变量
+#设置环境变量
 sudo vi /etc/profile
 使环境变量立马生效
 source /etc/profile
