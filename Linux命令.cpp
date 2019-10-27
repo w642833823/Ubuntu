@@ -79,9 +79,12 @@ halt
 sudo lsb_release -a
 Linux下zip文件密码破解Fcrackzip
 sudo apt-get install fcrackzip
-//查看程序包的安装路径
+//查看程序包的安装路径1
 which git
-
+#查找动态库位置2
+locate libGL
+#查找安装包的位置3
+find  /usr -name libGL
 常用Linux命令:
 打开文本文件
 sudo gedit /etc/apt/sources.list
