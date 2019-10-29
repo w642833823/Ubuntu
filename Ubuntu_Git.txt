@@ -1,60 +1,19 @@
- https://github.com/你的项目地址.git
 
 从Git上下载项目
 git clone https://github.com/你的目标项目.git
-git push
-来提交项目时出现一下错误
-提交代码遇到『Everything up-to-date』
-
-出现这个问题的原因是git提交改动到缓存，要push的时候不会将本地所有的分支都push掉，所以出现这个问题。我们应该告诉git提交哪个分支
-
-#提交
+把你的要上传代码项目移动到下载的项目中去
+3 跟踪项目
 git status
-将文件添加到缓冲区
-git add 'index.html'
-
-
-接下来先创建一个新分支提交改动
-
-
-$ git branch Qt_Ubuntu-18.04
-
-然后输入这条命令检查是否创建成功
-
-$ git branch
-
-这时终端输出
-
-  Qt_Ubuntu-18.04
-* master
-
-这样就创建成功了，前面的*代表的是当前你所在的工作分支。我们接下来就要切换工作分支。
-
-$ git checkout Qt_Ubuntu-18.04
-
-这样就切换完了，可以$ git branch确认下。然后你要将你的改动提交到新的分支上。
-
-$ git add .
-$ git commit -a
-
-此时可以$ git status检查下提交情况。如果提交成功，我们接下来就要回主分支了，代码和之前一样。
-
-$ git checkout master
-
-然后我们要将新分支提交的改动合并到主分支上
-
-$ git merge Qt_Ubuntu-18.04
-
-合并分支可能产生冲突这是正常的，虽然我们这是新建的分支不会产生冲突，但还是在这里记录下。下面的代码可以查看产生冲突的文件，然后做对应的修改再提交一次就可以了。
-
-$ git diff
+4建立跟踪
+git add 你复制来的项目名
+git add My_QQ
+5 git status
+git branch
+6 git add *
+git commit 
+填写变更信息
+8 提交项目
+git push
 
 
 
-$ git push -u origin master
-
-新建分支的朋友别忘了删除这个分支
-
-$ git branch -D Qt_Ubuntu-18.04
-
-如果想保留分支只是想删除已经合并的部分只要把大写的D改成小写的d就行了。
