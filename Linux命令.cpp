@@ -52,6 +52,8 @@ dpkg --get-selections |grep linux-image
 mv 123.txt 546.txt
 #移动文件到指定目录
 mv 123.txt /home/具体位置
+#移动文件到上一级目录
+mv 123.txt '../'
 
 # sudo su -                               切换到root权限（与su有区别）
 
