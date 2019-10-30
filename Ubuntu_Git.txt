@@ -32,15 +32,15 @@ git config --global credential.helper store
 2  git init 
    git add README.md
    git commit -m "push README"
-   git branch             
+   git remote add origin https://github.com/项目地址.git            
+   git push -u origin master  
+           
 3  git status 
 //添加跟踪文件
 4  git add my_widget README.md
 5  git status
 6
 7 git commit -m "push my_widget"  
-
-8  git remote add origin https://github.com/你的项目地址.git    
+  
        
-5 git push origin master
-
+5 git push 
