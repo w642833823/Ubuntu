@@ -15,5 +15,14 @@ git commit
 8 提交项目
 git push
 
+#设置git push github 免密输入账号密码的方法
+
+git config --global credential.helper store
+
+打开~/.gitconfig文件，会发现多了一项
+
+［credential］
+          helper=store
+此时，再次输入用户名和密码，以后再次push即可免去输入用户名和密码
 
 
