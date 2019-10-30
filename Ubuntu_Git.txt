@@ -26,3 +26,16 @@ git config --global credential.helper store
 此时，再次输入用户名和密码，以后再次push即可免去输入用户名和密码
 
 
+上传代码的步骤方法二
+
+1 echo "# My_QQ">>README.md
+2  git init 
+3  git status 
+//添加跟踪文件
+4  git add my_widget
+5  git status
+6  git add .
+7 git commit -m "first commit"  
+5 git push
+
+
