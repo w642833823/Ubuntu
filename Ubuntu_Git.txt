@@ -8,6 +8,7 @@ git status
 git add 你复制来的项目名
 git add My_QQ
 5 git status
+查看当前分支（+ -a 可以显示当前所有分支）
 git branch
 6 git add *
 git commit 
