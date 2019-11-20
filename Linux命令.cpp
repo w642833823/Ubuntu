@@ -60,6 +60,16 @@ mv 'home/w6458225/image'  './'
 
 # sudo su -                               切换到root权限（与su有区别）
 
+#linux下打包程序
+#移动文件到/usr/local/bin/并命名为linuxdeployqt
+#mv linuxdeployqt-continuous-x86_64.AppImage /usr/local/bin/linuxdeployqt
+#解决在root下权限还是不够的问题
+# chmod u+x /usr/local/bin/linuxdeployqt
+#输入一下命令
+# linuxdeployqt -version
+#看到一下就表示成功了
+linuxdeployqt 6 (commit 570cd59), build 710 built on 2019-09-26 18:33:57 UTC
+
 # shutdown -h now  或者 halt         关机
 # shutdown -r now            重启
 快捷启动命令行方式
