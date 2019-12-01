@@ -18,7 +18,8 @@ shift+:wq
 
 下载Git项目上的代码项目 git clone +项目地址
 git clone https://github.com/具体项目地址
-
+#查找QT安装包的位置
+whereis qtcreator
 
 在终端下直接显示文本文档内容
 #  cat 文本.cpp
