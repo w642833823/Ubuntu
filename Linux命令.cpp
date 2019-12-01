@@ -1,4 +1,10 @@
 重点注意X86和X64系统间的区别[x64的不能在x86中运行]
+#查看占用进程
+ps -e|grep apt
+返回如下
+8549  ？  00:00:31  apt
+#杀死进程
+sudo kill 8549
 
 //更新源
 1. sudo apt-get update
