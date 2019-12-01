@@ -31,6 +31,7 @@ df -h /boot
 
 sudo apt-get install default-jre
 #设置环境变量
+vi ~/.bashrc
 sudo vi /etc/profile
 使环境变量立马生效
 source /etc/profile
