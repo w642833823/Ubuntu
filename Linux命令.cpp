@@ -26,6 +26,8 @@ shift+:wq
 git clone https://github.com/具体项目地址
 #查找QT安装包的位置
 whereis qtcreator
+或者用/(是从根目录开始的)
+find / -name 要查找的文件名
 
 在终端下直接显示文本文档内容
 #  cat 文本.cpp
@@ -42,6 +44,10 @@ sudo vi /etc/profile
 使环境变量立马生效
 source /etc/profile
 查看环境变量是否已经生效
+#1，非常有用的清理命令：
+sudo apt-get autoclean --清理旧版本的软件缓存 OK(已经卸载掉的软件包)
+sudo apt-get clean--清理所有软件缓存 OK(电脑上存储的安装包)
+sudo apt autoremove   卸载不需要的软件
 
 查看Linux是32位还是64
 getconf LONG_BIT
@@ -102,10 +108,7 @@ halt
 sudo lsb_release -a
 Linux下zip文件密码破解Fcrackzip
 sudo apt-get install fcrackzip
-//查看程序包的安装路径1
-which git
-#查找动态库位置2
-locate libGL
+
 #查找安装包的位置3
 find  /usr -name libGL
 常用Linux命令:
@@ -122,10 +125,7 @@ sudo apt-get remove--auto-hugin hugin-tools
 cannot find -lGL
 需安装
 sudo apt-get install libgl1 -mesa-dev
-1，非常有用的清理命令：
-sudo apt-get autoclean --清理旧版本的软件缓存 OK(已经卸载掉的软件包)
-sudo apt-get clean--清理所有软件缓存 OK(电脑上存储的安装包)
-sudo apt autoremove   卸载不需要的软件
+
 
 卸载QT5程序
 #sudo apt-get remove qt5-default qtcreator 程序名
