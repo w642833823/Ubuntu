@@ -88,7 +88,8 @@ linuxdeployqt 6 (commit 570cd59), build 710 built on 2019-09-26 18:33:57 UTC
 # shutdown -r now            重启
 快捷启动命令行方式
 Ctrl+Alt+t
-移出软件remove
+卸载不需要软件
+#sudo apt-get remove unity-webapps-common
 1、移除libdpkg-perl这个软件：
 
 # sudo apt-get remove libdpkg-perl
@@ -176,12 +177,6 @@ sudo apt-get install qtcreator
 sudo su
 sudo su gedit /etc/profile
 
-文件和目录:
-
-# cd '/home '                      进入 '/home' 目录
-# cd ..                                返回上一级目录
-# cd ../..                             返回上两级目录
-
 # pwd                                显示当前所在路径
 
 
@@ -193,17 +188,6 @@ sudo su gedit /etc/profile
 查找:
 
 # find / -name file1                                                 从 '/' 开始进入根文件系统查找文件和目录
-查找安装包的位置
-whereis git
-
-
-
-安装gcc
-sudo apt-get install gcc 8.1
-yum工具:
-
-网络:
-
 
 查看本地语言设置
 locale
