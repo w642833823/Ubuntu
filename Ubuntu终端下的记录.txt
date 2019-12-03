@@ -9,4 +9,4 @@
 分区查看
 sudo dfisk -l > 你的文本名.txt
 或者
-# sudo cat
+# sudo cat ~/.bashrc >环境变量.txt
