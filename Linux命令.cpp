@@ -10,6 +10,10 @@ sudo kill 8549
 1. sudo apt-get update
 //更新已安装的软件包
 2. sudo apt-get upgrade
+卸载不需要软件
+#sudo apt autoclean
+清理缓存
+sudo apt clean
 
 Ubuntu 18.04 下使用git
 在终端下使用
@@ -88,8 +92,7 @@ linuxdeployqt 6 (commit 570cd59), build 710 built on 2019-09-26 18:33:57 UTC
 # shutdown -r now            重启
 快捷启动命令行方式
 Ctrl+Alt+t
-卸载不需要软件
-#sudo apt-get remove unity-webapps-common
+
 1、移除libdpkg-perl这个软件：
 
 # sudo apt-get remove libdpkg-perl
