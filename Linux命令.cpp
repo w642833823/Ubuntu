@@ -30,8 +30,10 @@ shift+:wq
 git clone https://github.com/具体项目地址
 #查找QT安装包的位置
 whereis qtcreator
-或者用/(是从根目录开始的)
-find / -name 要查找的文件名
+或者用/(是从360目录开始的)查找所以目录下的.c4droid文件
+find /360 -name *.c4droid
+#删除360目录下所以.c4droid文件并一次删除
+rm -rf /360 *.c4droid
 
 在终端下直接显示文本文档内容
 #  cat 文本.cpp
