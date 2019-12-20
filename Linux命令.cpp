@@ -60,7 +60,7 @@ sudo apt-get clean--清理所有软件缓存 OK(电脑上存储的安装包)
 sudo apt autoremove   卸载不需要的软件
 
 查看Linux是32位还是64
-getconf LONG_BIT
+# harch
 //ubuntu 应用程序默认安装位置
 /usr/share/applicatio
 快捷键开启终端
