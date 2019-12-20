@@ -1,4 +1,7 @@
 重点注意X86和X64系统间的区别[x64的不能在x86中运行]
+查看Linux是32位还是64
+# harch
+倘若输出"i686"则表示32位，而"x86_64"则表示64位系统
 #查看占用进程
 ps -e|grep apt
 返回如下
@@ -59,8 +62,7 @@ sudo apt-get autoclean --清理旧版本的软件缓存 OK(已经卸载掉的软
 sudo apt-get clean--清理所有软件缓存 OK(电脑上存储的安装包)
 sudo apt autoremove   卸载不需要的软件
 
-查看Linux是32位还是64
-# harch
+
 //ubuntu 应用程序默认安装位置
 /usr/share/applicatio
 快捷键开启终端
