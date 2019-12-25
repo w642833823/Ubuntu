@@ -73,7 +73,8 @@ ctrl+alt+t
 dpkg --get-selections |grep linux-image
 #卸载内核镜像
  sudo apt-get remove linux-image-4.8.0-56-generic
-
+安装flash插件
+sudo apt-get install flashplugin-installer
 #对文件名重命名
 mv 123.txt 546.txt
 #移动文件到指定目录
