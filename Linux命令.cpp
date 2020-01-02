@@ -10,6 +10,7 @@ ps -e|grep apt
 sudo kill 8549
 在root下权限不够
 chmod a+x ./软件名
+#chmod 0755 ./filename
 //更新源
 1. sudo apt-get update
 //更新已安装的软件包
