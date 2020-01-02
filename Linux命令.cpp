@@ -8,7 +8,8 @@ ps -e|grep apt
 8549  ？  00:00:31  apt
 #杀死进程
 sudo kill 8549
-
+在root下权限不够
+chmod a+x ./软件名
 //更新源
 1. sudo apt-get update
 //更新已安装的软件包
