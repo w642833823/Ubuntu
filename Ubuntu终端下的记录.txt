@@ -10,3 +10,6 @@
 sudo dfisk -l > 你的文本名.txt
 或者
 # sudo cat ~/.bashrc >环境变量.txt
+
+开启WIFI
+nm-connection-editor
