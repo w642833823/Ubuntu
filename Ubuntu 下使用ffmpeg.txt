@@ -1,0 +1,2 @@
+//在Ubuntu 下使用ffmpeg工具转换视频
+ffmpeg -i 你的m3u8地址 -acodec copy -vcodec copy -f mp4 自定义名.mp4
