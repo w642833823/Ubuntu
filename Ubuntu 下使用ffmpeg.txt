@@ -46,3 +46,18 @@ ffmpeg -i input.mp4 -vn -y -acodec copy output.m4a
 
 去掉视频中的音频
 ffmpeg -i input.mp4 -an output.mp4
+//0.转换wav到mp3：
+ffmpeg -i input.wav -f mp3 -acodec libmp3lame -y output.mp3
+
+//1.转换amr到mp3：
+ffmpeg -i input.amr output.mp3
+
+//2.转换amr到wav：
+ffmpeg -acodec libamr_nb -i input.amr output.wav
+
+//3.转换wav到amr：
+ffmpeg -i input.wav -acodec libamr_nb -ab 12.2k -ar 8000 -ac 1 output.amr
+
+注：2 3 需要引入 libamr_nb库，其他方法，有待研究
+//转换mp3到wav
+ffmpeg -i input.mp3 -f wav output.wav
