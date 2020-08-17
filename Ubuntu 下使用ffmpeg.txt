@@ -11,7 +11,8 @@ ffmpeg -i input1.mp4 -i input2.mp4 -i input3.mp4 -lavfi hstack=inputs=3 output.m
 
 //纵向合并视频
 ffmpeg -i input1.mp4 -i input2.mp4 -lavfi vstack output.mp4
-
+//将ffmpeg命令内容信息写到txt中
+ffmpeg -formats -h >支持格式.txt
 //1. 列出支持的格式：ffmpeg -formats
 2. 剪切一段媒体文件：ffmpeg -i input.mp4 -ss 00:00:50.0 -codec copy -t 20 output.mp4
 3. 提取一个视频文件中的音频文件：ffmpeg -i input.mp4 -vn  -acodec copy output.m4a
