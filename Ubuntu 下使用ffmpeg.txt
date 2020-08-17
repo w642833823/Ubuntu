@@ -12,6 +12,15 @@ ffmpeg -i input1.mp4 -i input2.mp4 -i input3.mp4 -lavfi hstack=inputs=3 output.m
 //纵向合并视频
 ffmpeg -i input1.mp4 -i input2.mp4 -lavfi vstack output.mp4
 
+//1. 列出支持的格式：ffmpeg -formats
+2. 剪切一段媒体文件：ffmpeg -i input.mp4 -ss 00:00:50.0 -codec copy -t 20 output.mp4
+3. 提取一个视频文件中的音频文件：ffmpeg -i input.mp4 -vn  -acodec copy output.m4a
+4. 视频静音，即只保留视频：ffmpeg -i input.mp4 -an -vcodec copy output.mp4
+5. 从MP4文件中抽取视频流导出为裸的H264数据：ffmpeg -i output.mp4 -an -vcodec copy -bsf:v h264_mp4toannexb output.h264
+6. 使用AAC音频数据和H264视频生成MP4文件：ffmpeg -i test.aac -i test.h264 -acodec copy -bsf:a aac_adtstoasc -vcodec copy -f mp4 output.mp4
+7. 音频格式转换：ffmpeg -i input.wav -acodec libfdk_aac output.aac
+#8. 将一个MP4的文件转换为一个GIF动图：ffmpeg -i input.mp4 -vf scale=100:-1 -t 5 -r 10 image.gif
+
 //网格合并视频
 当多个视频时，还可以合并成网格状，比如2x2，3x3这种。但是视频个数不一定需要是偶数，如果是奇数，可以用黑色图片来占位。
 
