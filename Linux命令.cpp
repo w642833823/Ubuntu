@@ -19,6 +19,8 @@ chmod a+x ./软件名
 #sudo apt autoclean
 清理缓存
 sudo apt clean
+//将ls的命令内容输出到txt中
+ls --help >ls.txt
 
 Ubuntu 18.04 下使用git
 在终端下使用
