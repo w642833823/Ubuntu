@@ -1,0 +1,2 @@
+hexdump 16进制文件查看命令
+hexdump /home/w64283325/ext.txt
