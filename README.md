@@ -44,3 +44,5 @@ git config --global credential.helper store
   
        
 5 git push 
+
+![vim 命令] (https://github.com/w642833823/C/blob/master/vim%E5%91%BD%E4%BB%A4%E5%9B%BE%E7%89%87.png)
