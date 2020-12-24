@@ -13,6 +13,8 @@ chmod a+x ./软件名
 #chmod 0755 ./filename
 //更新源
 1. sudo apt-get update
+//出现无法对目录/var/lib/apt/lists/加锁删除lock解决问题
+sudo rm /var/lib/apt/lists/lock 
 //更新已安装的软件包
 2. sudo apt-get upgrade
 卸载不需要软件
