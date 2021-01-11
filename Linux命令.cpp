@@ -42,7 +42,7 @@ shift+:wq
 下载Git项目上的代码项目 git clone +项目地址
 git clone https://github.com/具体项目地址
 #查找QT安装包的位置
-whereis qtcreator
+which qtcreator
 搜索文件
 sudo find 文件名
 或者用/(是从360目录开始的)查找所以目录下的.c4droid文件
