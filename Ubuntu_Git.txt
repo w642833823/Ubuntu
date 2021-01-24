@@ -26,7 +26,7 @@ cat ~/.ssh/id_rsa.pub
 git clone git@github.com:was833823/C.git
 完成克隆到本地
 4 上传分支
-(1)项目克隆到本地之后，执行如下命令创建分支smart.
+(1)项目克隆到本地之后，执行如下命令创建分支smart并checkout到新分区.
 git checkout -b smart
 #查看分支情况
 git branch
