@@ -69,7 +69,7 @@ source /etc/profile
 sudo apt-get autoclean --清理旧版本的软件缓存 OK(已经卸载掉的软件包)
 sudo apt-get clean--清理所有软件缓存 OK(电脑上存储的安装包)
 sudo apt autoremove   卸载不需要的软件
-
+sudo apt-get remove 软件名
 
 //ubuntu 应用程序默认安装位置
 /usr/share/applicatio
