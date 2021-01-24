@@ -1,0 +1,249 @@
+qmake工具是Qt提供的。它用来编译Qt本身，以及Qt附带的工具和示例。本书中，我们使用qmake工程文件（.pro文件）生成示例程序和插件。本节，我们将更系统地讲解.pro文件的语法（尽管并不全面）以及一些基本的qmake概念。更加全面的介绍请参阅qmake手册，本手册可在http://doc.trolltech.com/4.3/qmake-manual.html在线查看。
+
+.pro文件的用途是列举对应工程调用的源文件。由于qmake可以用于编译Qt及其相关工具，其对Qt的支持非常全面，可以自动生成调用moc、uic和rcc的规则，因此.pro文件的语法非常简单，而且易于学习。
+
+三类主要的工程文件类型包括app（用于单独的应用程序）、lib（用于静态库和共享库）和subdirs（用于对文件夹下多个项目子文件夹进行编译批处理）。可通过设定TEMPLATE变量的值来指定工程文件类型，如下：
+
+TEMPLATE = lib
+
+subdirs模板可以用来编译子目录中的目标工程文件。这种情况下，我们不仅要设定TEMPLATE = subdirs，还要指定SUBDIRS变量的唯一值。在每个子目录中，qmake工具查找以字文件夹名命名的.pro文件并编译该工程。本书示例中的examples.pro文件就使用了subdirs模板，这样一次编译examples.pro文件就可以在每个例子上运行qmake，而不用再在每个示例文件夹手动调用一次qmake，即完成所有示例编译的批处理。
+
+如果不单独设置TEMPLATE的值，则默认为app。对于app和lib工程，最常用的变量有如下几个：
+
+HEADERS指定工程的C++头（.h）文件
+
+SOURCES指定工程的C++源（.c）文件
+
+FORMS指定需要uic处理的Qt Designer（.ui）文件
+
+RESOURCES指定需要rcc处理的资源（.qrc）文件
+
+DEFINES指定需要预先定义的C++预处理符号
+
+INCLUDEPATH指定需要C++预处理器搜索的存放全局头文件的路径
+
+LIBS指定工程链接的函数库。函数库可以使用绝对路径指定，也可以使用Unix系统的-L和-l标识符指定（如-L/usr/local/lib和-ldb_cxx）
+
+CONFIG指定各个工程配置和编译器选项
+
+QT指定工程需要加载的Qt模块（默认加载core和gui分别对应QtCore和QtGui模块）
+
+VERSION指定目标函数库的版本号
+
+TARGET指定目标可执行文件或函数库的基名，不包括任何扩展名、前缀或版本号（默认为当前工作文件夹的名称）
+
+DESTDIR指定目标可执行文件存放的路径（默认值与平台相关，比如Linux系统中是当前文件夹，Windows系统中是debug或release子文件夹）
+
+DLLDESTDIR指定目标库文件存放的路径（默认值与DESTDIR相同）
+
+CONFIG用于控制编译过程的方方面面，支持以下选项：
+
+debug指编译生成带调试信息的可执行文件或函数库，并链接Qt库的调试版本
+
+release指编译生成不带调试信息的可执行文件或函数库，链接Qt库的发布版本。如果同时指定debug和release，则debug生效，即debug优先级高
+
+warn_off指编译时禁止告警条目生成，默认情况下编译是带告警条目的
+
+qt指应用程序或函数库使用Qt，CONFIG默认包含该选项
+
+dll指编译生成共享库
+
+staticlib指编译生成静态库
+
+plugin指编译生成插件，一般情况下，插件就是共享库，因此本选项也意味着dll选项
+
+console指应用程序需要向控制台窗口写入数据（使用cout、cerr、qWarning()等函数时需要设置该选项）
+
+app_bundle只适应于Mac OS X系统编译，指可执行文件存放到束中，这在Mac OS X中是默认选项
+
+lib_bundle只适应于Mac OS X系统编译，指生成的函数库存放于框架内
+
+要生成名为hello.pro工程文件的makefile，输入如下指令：
+
+qmake hello.pro
+
+之后，可以调用make或nmake编译工程。也可以使用qmake生成Microsoft Visual Studio工程文件（.dsp或.vproj），输入如下指令：
+
+qmake –tp vc hello.pro
+
+在Mac OS X系统中，使用如下指令生成Xcode工程：
+
+qmake –spec macx-xcode hello.pro
+
+生成makefile使用以下指令：
+
+qmake –spec macx-g++ hello.pro
+
+-spec命令行选项用于指定一个平台和编译器的组合。一般情况下，qmake可以自动检测正确的平台，但某些情况下也有必要显示地指明所用平台。比如，要在Linux64位系统中调用因特尔C++编译器（ICC）生成makefile文件，则需如下指令：
+
+qmake –spec linux-icc-64 hello.pro
+
+Qt的mkspecs路径下保存了可能用到的规则（类似于linux-icc-64的规则）。
+
+虽然qmake的主要功能是由.pro文件生成makefile文件，我们也可以使用qmake并结合-project选项为当前文件夹生成.pro文件，比如：
+
+qmake –project
+
+这种模式下，qmake会搜索当前文件夹中已知的扩展名文件（.h、.cpp、.ui等），并生成一个列举了这些文件的.pro文件。
+
+本节的剩余部分将更详细地介绍.pro文件的语法。.pro文件的每个条目通常符合如下语法：
+
+variable = values
+
+其中values是一个字符串列表。注释行由井号（#）开头，作用域到本行结尾。比如：
+
+CONFIG = qt release warn_off       # I know what I'm doing
+
+本行指定CONFIG的值为列表[“qt”、“release”、“warn_off”]，并覆盖之前的所有值。“+=”操作符是“=”操作符功能的补充，用于在原变量值的基础上增加一个值而非覆盖之前的值。比如：
+
+CONFIG = qt
+
+CONFIG += release
+
+CONFIG += warn_off
+
+上述行也实现了指定CONFIG的值为列表[“qt”、“release”、“warn_off”]，和之前的例子实现的功能一样。“-=”操作符移除变量当前值中发现的所有指定字符串的值，比如：
+
+CONFIG = qt release warn_off
+
+CONFIG -= qt
+
+则设置CONFIG值为列表[ “release”、“warn_off”]。“*=”操作符用于增加一个字符串到变量，但是只有在当前的变量值列表不包含待增加的字符串时才执行添加操作，否则，不做任何操作。比如：
+
+SOURCES *= main.cpp
+
+只有在SOURCES不包含“main.cpp”字符串时才将main.cpp源文件添加到工程中。最后，“~=”操作符用于字符串替换，它用指定的字符串替换当前值列表中所有匹配正则表达式的字符串值，使用的语法类似于sed（Unix的字串流编辑器）。比如：
+
+SOURCES ~= s/\.cpp\b/.cxx/
+
+表示用.cxx替换SOURCES变量中所有的.cpp文件扩展名。
+
+在变量值列表中，qmake提供了访问以下变量值的方法，包括其他qmake变量、环境变量以及Qt配置选项。语法如列表B.2所示。
+
+表B.2 qmake可用变量的访问语法
+
+访问语法
+
+描述
+
+$$varName或$${varName}
+
+本.pro文件中指定的qmake变量值
+
+$$(varName)
+
+qmake运行时环境变量的值
+
+$(varName)
+
+生成makefile文件时环境变量的值
+
+$$[varName]
+
+Qt配置选项的值
+
+前面列举的例子都是使用的标准变量，如SOURCES、CONFIG，实际上可以设置任何变量的值并用$$varName或$${varName}语法来引用它，比如：
+
+MY_VERSION   = 1.2
+
+SOURCES_BASIC = alphadialog.cpp \
+
+                main.cpp \
+
+                windowpanel.cpp
+
+SOURCES_EXTRA = bezierextension.cpp \
+
+                xplot.cpp
+
+SOURCES      = $$SOURCES_BASIC \
+
+                $$SOURCES_EXTRA
+
+TARGET       = imgpro_$${MY_VERSION}
+
+下面的例子结合之前讲解的语法，使用内置函数$$lower()将字符串中的所有字母转化为小写：
+
+# List of classes in the project
+
+MY_CLASSES   = Annotation \
+
+                CityBlock \
+
+                CityScape \
+
+                CityView
+
+ 
+
+# Append .cpp extension to lowercased classnames, and add main.cpp
+
+SOURCES      = $$lower($$MY_CLASSES)
+
+SOURCES     ~= s/([a-z0-9_]+)/\1.cpp/
+
+SOURCES     += main.cpp
+
+# Append .h extension to lowercased classnames
+
+HEADERS      = $$lower($$MY_CLASSES)
+
+HEADERS     ~= s/([a-z0-9_]+)/\1.h/
+
+有时在.pro文件中需要指定带空格的文件名，这种情况下，只需要把文件名用引号括起来即可。
+
+当在不同的平台编译工程时，需要根据平台的不同指定不同的文件或选项。qmake中条件判断语法如下：
+
+condition {
+
+   then-case
+
+} else {
+
+   else-case
+
+}
+
+上述语句中的condition部分可以是平台名称（如win32、unix或macx），也可以是更加复杂的条件逻辑。then-case和else-case部分使用标准语法指定变量值，例如：
+
+win32 {
+
+   SOURCES += serial_win.cpp
+
+} else {
+
+   SOURCES += serial_unix.cpp
+
+}
+
+else分支是可选的。为方便起见，当then-case部分只由一个变量赋值语句组成且没有else-case部分时，qmake也支持单行语法，如下：
+
+condition:then-case
+
+例如：
+
+macx:SOURCES += serial_mac.cpp
+
+如果多个工程文件需要共享相同的条目，可以把相同的条目提取到一个单独的文件中，然后在各自的.pro文件中使用include()指令包含这个文件，如：
+
+include(../common.pri)
+
+ 
+
+HEADERS     += window.h
+
+SOURCES     += main.cpp \
+
+                window.cpp
+
+通常，要被其他工程包含的工程文件以.pri为扩展名（pri表示projectinclude）。
+
+在前面的例子中，我们了解了内置函数$$lower()，可以返回全小写的字符串。另一个有用的函数是$$system()，它可以从外部应用中生成字符串值。比如，如果要确定使用的Unix系统版本，可以这样写：
+
+OS_VERSION = $$system(uname -r)
+
+我们可以通过contains()函数在条件判断中使用结果变量值：
+
+contains(OS_VERSION, SunOS):SOURCES +=mythread_sun.c
+
+本节，我们仅仅大概浏览下qmake工具的表面功能。其实，qmake工具所提供的选项和特性远比我们提到的要丰富的多，包括支持预编译头文件、支持Mac OS X通用二进制库、支持用户自定义编译器或工具。详情请参考在线qmake手册。

@@ -1,0 +1,74 @@
+//在Ubuntu 下使用ffmpeg工具转换m3u8视频
+ffmpeg -i 你的m3u8地址 -acodec copy -vcodec copy -f mp4 自定义名.mp4
+//在Ubuntu 下使用ffmpeg工具转换m4s视频
+###（注意参数位置)
+ffmpeg -i audio.m4s -i video.m4s -acodec copy -vcodec copy -f mp4 自定义名.mp4
+//横向合并视频
+//注意这时候1和2必须同样的高度，如果不一样的高度可以使用-shortest参数来保证同样的高度
+ffmpeg -i 1.mp4 -i 2.mp4 -lavfi hstack output.mp4
+//如果希望合并多个视频，可以使用下面命令行。
+ffmpeg -i input1.mp4 -i input2.mp4 -i input3.mp4 -lavfi hstack=inputs=3 output.mp4
+其中input=3表示希望合并的视频的个数
+
+//纵向合并视频
+ffmpeg -i input1.mp4 -i input2.mp4 -lavfi vstack output.mp4
+//将ffmpeg命令内容信息写到txt中
+ffmpeg -formats -h >支持格式.txt
+//1. 列出支持的格式：ffmpeg -formats
+2. 剪切一段媒体文件：ffmpeg -i input.mp4 -ss 00:00:50.0 -codec copy -t 20 output.mp4
+3. 提取一个视频文件中的音频文件：ffmpeg -i input.mp4 -vn  -acodec copy output.m4a
+4. 视频静音，即只保留视频：ffmpeg -i input.mp4 -an -vcodec copy output.mp4
+5. 从MP4文件中抽取视频流导出为裸的H264数据：ffmpeg -i output.mp4 -an -vcodec copy -bsf:v h264_mp4toannexb output.h264
+6. 使用AAC音频数据和H264视频生成MP4文件：ffmpeg -i test.aac -i test.h264 -acodec copy -bsf:a aac_adtstoasc -vcodec copy -f mp4 output.mp4
+7. 音频格式转换：ffmpeg -i input.wav -acodec libfdk_aac output.aac
+#8. 将一个MP4的文件转换为一个GIF动图：ffmpeg -i input.mp4 -vf scale=100:-1 -t 5 -r 10 image.gif
+
+//网格合并视频
+当多个视频时，还可以合并成网格状，比如2x2，3x3这种。但是视频个数不一定需要是偶数，如果是奇数，可以用黑色图片来占位。
+
+ffmpeg -f lavfi -i color=c=black:s=1280x720 -vframes 1 black.png
+该命令将创建一张1280*720的图片
+
+然后就可以使用下面这个命令来合并成网格视频了，如果只有三个视频，可以选择上面创建的黑色图片替代。
+ffmpeg -i top_left.mp4 -i top_right.mp4 -i bottom_left.mp4 -i bottom_right.mp4 \
+-lavfi "[0:v][1:v]hstack[top];[2:v][3:v]hstack[bottom];[top][bottom]vstack"
+-shortest 2by2grid.mp4
+
+上面创建的是正规的2x2网格视频。想象一下，现在只有三个视频，我想把第一个视频摆放在第一行的中间，然后把第二、三个视频摆放在第二行。那么就可以使用下面两个命令了。
+
+ffmpeg -f lavfi -i color=c=black:s=640x720 -vframes 1 black.png
+
+ffmpeg -i black.png -i top_center.mp4 -i bottom_left.mp4 -i bottom_right.mp4
+-lavfi "[0:v][1:v][0:v]hstack=inputs=3[top];[2:v][3:v]hstack[bottom];[top][bottom]vstack"
+-shortest 3_videos_2x2_grid.mp4
+
+//合并音频和视频
+ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -strict experimental output.mp4
+
+如果视频中已经包含了音频，这个时候还可以替换视频中的音频，使用下面命令行。
+ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -strict experimental
+-map 0:v:0 -map 1:a:0 output.mp4
+
+合并两个音频
+ffmpeg -i input1.mp3 -i input2.mp3 -filter_complex amerge -ac 2 -c:a libmp3lame -q:a 4 output.mp3
+
+//获取视频中的音频
+ffmpeg -i input.mp4 -vn -y -acodec copy output.m4a
+
+去掉视频中的音频
+ffmpeg -i input.mp4 -an output.mp4
+//0.转换wav到mp3：
+ffmpeg -i input.wav -f mp3 -acodec libmp3lame -y output.mp3
+
+//1.转换amr到mp3：
+ffmpeg -i input.amr output.mp3
+
+//2.转换amr到wav：
+ffmpeg -acodec libamr_nb -i input.amr output.wav
+
+//3.转换wav到amr：
+ffmpeg -i input.wav -acodec libamr_nb -ab 12.2k -ar 8000 -ac 1 output.amr
+
+注：2 3 需要引入 libamr_nb库，其他方法，有待研究
+//转换mp3到wav
+ffmpeg -i input.mp3 -f wav output.wav
