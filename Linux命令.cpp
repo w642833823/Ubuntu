@@ -19,6 +19,20 @@ sudo rm /var/lib/apt/lists/lock
 2. sudo apt-get upgrade
 卸载不需要软件
 #sudo apt autoclean
+#总结一下：
+
+1.sudo apt-get remove 软件名
+
+卸载删除软件，但是配置文件什么的都还在
+
+2.sudo apt-get --purge remove 软件名
+
+删除软件、及其配置文件，但是原来安装该软件的依赖包都还在
+
+3.sudo apt-get autoremove --purge 软件名
+
+删除软件及其配置文件、相关依赖包等，属于比较干净的卸载。
+
 清理缓存
 sudo apt clean
 //将ls的命令内容输出到txt中
