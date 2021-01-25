@@ -1,5 +1,3 @@
-
-
 root@web ffmpeg]# ./configure --help
 Usage: configure [options]
 Options: [defaults in brackets after descriptions]
@@ -7,7 +5,7 @@ Options: [defaults in brackets after descriptions]
 Standard options: 基本选项参数
 --help                   显示此帮助信息|print this message
 --log[=FILE|yes|no]      记录测试并输出到config.err文件|log tests and output to FILE [config.err]
---prefix=PREFIX          安装程序到指定目录（默认/usr/local）|install in PREFIX [/usr/local]
+--prefix=$PREFIX          安装程序到指定目录（默认/usr/local）|install in PREFIX [/usr/local]
 --libdir=DIR             安装库到指定目录（默认prefix/lib）|install libs in DIR [PREFIX/lib]
 --shlibdir=DIR           指定共享库路径（默认prefix/lib）|install shared libs in DIR [PREFIX/lib]
 --incdir=DIR             指定includes路径（默认prefix/include/ffmpeg）|install includes in DIR[PREFIX/include/ffmpeg]
