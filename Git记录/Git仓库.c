@@ -2,7 +2,7 @@
 git init
 这个操作是初始化一个版本仓库
 
-git clone
+git clone https://github.com/gdh6542.git
 克隆远端仓库到本地
 
 git pull
