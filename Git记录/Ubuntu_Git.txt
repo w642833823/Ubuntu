@@ -13,7 +13,7 @@ vim .gitconfig
      name  = was833823
 保存退出
 (4)生成/添加SSH公钥
-ssh-keygen -t rsa -C "邮箱地址"
+ssh-keygen -t rsa -C "https://github.com/was833823"
 
 #按照提示完成三次回车，即可生成 ssh key。通过查看 ~/.ssh/id_rsa.pub 文件内容，获取到你的 public key
 
