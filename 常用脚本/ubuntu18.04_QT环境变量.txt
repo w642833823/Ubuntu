@@ -1,0 +1,46 @@
+
+#设置Qt的环境变量
+#以下内容可以存放到以root下使用的~/.bashrc中
+#或者存放的不要root权限的/etc/profile中
+
+# set PATH to QT
+export QTDIR=/opt/Qt5.13.2/Tools/QtCreator
+export PATH=$QTDIR/bin:$PATH
+export MANPATH=$QTDIR/doc/man:$MANPATH
+export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+
+#这句不可少
+export PATH="/opt/Qt5.13.2/Tools/QtCreator/bin:$PATH"
+export PATH="/opt/Qt5.13.2/5.13.2/gcc_64/bin:$PATH"
+
+#set PATH to JDK_HOME
+export JAVA_HOME=/opt/jdk-8u92-linux-x64/jdk1.8.0_92
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+
+
+
+
+#qt for android环境搭建
+
+
+#set PATH to NDK_HOME
+NDK_HOME=/usr/local/android/android-ndk-r12b
+export PATH=$PATH:$NDK_HOME
+
+
+
+#set PATH to ANT_HOME
+    export ANT_HOME=/usr/local/android/apache-ant-1.9.7
+    export PATH=$PATH:${ANT_HOME}/bin
+
+
+
+
+
+
+
+
+
+
